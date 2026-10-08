@@ -27,6 +27,8 @@ Build args:
   their CRAN dependencies are installed from. Bioconductor dependencies come from the
   base image's (frozen) Bioconductor 3.21 repos.
 
+Published as [`ghcr.io/cfde-cwic/rstudio`](https://github.com/orgs/cfde-cwic/packages/container/package/rstudio).
+
 ### Tags
 
 `<bioc version>-<revision>`, e.g. `3.21-1`. Bump the revision on every rebuild; never
@@ -40,13 +42,13 @@ always bump it when changing the base image.
 ### Build
 
 ```bash
-docker build --platform linux/amd64 -t cfde-cwic/rstudio:3.21-1 rstudio/
+docker build --platform linux/amd64 -t ghcr.io/cfde-cwic/rstudio:3.21-1 rstudio/
 ```
 
 ### Test locally
 
 ```bash
-docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true cfde-cwic/rstudio:3.21-1
+docker run --rm -p 127.0.0.1:8787:8787 -e DISABLE_AUTH=true ghcr.io/cfde-cwic/rstudio:3.21-1
 ```
 
 Open http://localhost:8787 and run:
@@ -54,4 +56,10 @@ Open http://localhost:8787 and run:
 ```r
 library(MotrpacRatTraining6mo)
 data(TRNSCRPT_LIVER_DA)
+```
+
+### Push
+
+```bash
+docker push ghcr.io/cfde-cwic/rstudio:3.21-1
 ```
